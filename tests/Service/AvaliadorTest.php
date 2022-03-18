@@ -55,4 +55,51 @@ class AvaliadorTest extends TestCase
 
         self::assertEquals($valorEsperado, $maiorValor);
     }
+
+    public function testAvaliadorDeveEncontrarOMenorValorDeLancesEmOrdemDecrescente()
+    {
+        // Arrange - Given / Preparamos o cenário do teste
+        $leilao = new Leilao('Fiat 147 0km');
+
+        $maria = new Usuario('Maria');
+        $joao = new Usuario('Joao');
+
+        $leilao->recebeLance(new Lance($maria, 2500));
+        $leilao->recebeLance(new Lance($joao, 2000));
+
+
+        $leiloeiro = new Avaliador();
+
+        // Act - When / Executamos o código a ser testado
+        $leiloeiro->avalia($leilao);
+
+        $valorEsperado = 2000;
+        $menorValor = $leiloeiro->getMenorValor();
+
+        // Assert - Then / Verificamos se a saída é a esperada
+        self::assertEquals($valorEsperado, $menorValor);
+    }
+
+    public function testAvaliadorDeveEncontrarOMenorValorDeLancesEmOrdemCrescente()
+    {
+        // Arrange - Given / Preparamos o cenário do teste
+        $leilao = new Leilao('Fiat 147 0km');
+
+        $maria = new Usuario('Maria');
+        $joao = new Usuario('Joao');
+
+        $leilao->recebeLance(new Lance($joao, 2000));
+        $leilao->recebeLance(new Lance($maria, 2500));
+
+        $leiloeiro = new Avaliador();
+
+        // Act - When / Executamos o código a ser testado
+        $leiloeiro->avalia($leilao);
+
+        $valorEsperado = 2000;
+        $menorValor = $leiloeiro->getMenorValor();
+
+        // Assert - Then / Verificamos se a saída é a esperada
+        self::assertEquals($valorEsperado, $menorValor);
+    }
 }
