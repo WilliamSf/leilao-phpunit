@@ -36,3 +36,8 @@ https://phpunit.readthedocs.io/en/8.5/assertions.html
 ## Configuração XML phpunit
 
 [Link da documentação](https://phpunit.readthedocs.io/pt_BR/latest/configuration.html)
+
+## TDD (Test Driven Development), ou desenvolvimento guiado a testes
+
+Um material sobre o assunto pode ser encontrado nesta [página](https://tdd.caelum.com.br/) da Caelum.
+Livro: [Test-Driven Development](https://www.casadocodigo.com.br/pages/sumario-tdd-php)
